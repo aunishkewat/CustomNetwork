@@ -1,0 +1,33 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
+// swift-module-flags: -target arm64-apple-ios15.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name CustomNetwork
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+@_exported import CustomNetwork
+import Foundation
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_hasMissingDesignatedInitializers public class NetworkManager {
+  public static let shared: CustomNetwork.NetworkManager
+  public func performRequest(to urlString: Swift.String, method: CustomNetwork.NetworkManager.HTTPMethod, body: Foundation.Data? = nil, bearerToken: Swift.String? = nil, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  public func getRequest(url: Swift.String, bearerToken: Swift.String?, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  public func postRequest(url: Swift.String, body: Foundation.Data?, bearerToken: Swift.String?, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  public func putRequest(url: Swift.String, body: Foundation.Data?, bearerToken: Swift.String?, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  public func deleteRequest(url: Swift.String, bearerToken: Swift.String?, completion: @escaping (Foundation.Data?, Foundation.URLResponse?, (any Swift.Error)?) -> Swift.Void)
+  public enum HTTPMethod : Swift.String {
+    case get
+    case post
+    case put
+    case delete
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  @objc deinit
+}
+extension CustomNetwork.NetworkManager.HTTPMethod : Swift.Equatable {}
+extension CustomNetwork.NetworkManager.HTTPMethod : Swift.Hashable {}
+extension CustomNetwork.NetworkManager.HTTPMethod : Swift.RawRepresentable {}
